@@ -19,10 +19,12 @@ const startServer = async (): Promise<void> => {
     const apolloServer = new ApolloServer({
         typeDefs,
         resolvers,
+        //Dòng này có gợi ý khi deploy
+        introspection: true,
         context: ({ req }) => req,
     })
     await apolloServer.start();
-    
+
     apolloServer.applyMiddleware({
         app: app,
         path: "/graphql",

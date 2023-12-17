@@ -51,6 +51,7 @@ const startServer = () => __awaiter(void 0, void 0, void 0, function* () {
     const apolloServer = new apollo_server_express_1.ApolloServer({
         typeDefs: index_typedefs_1.typeDefs,
         resolvers: index_resolver_1.resolvers,
+        introspection: true,
         context: ({ req }) => req,
     });
     yield apolloServer.start();
